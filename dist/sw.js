@@ -27,3 +27,18 @@ self.addEventListener("activate", (event) => {
   // ensure that the Service Worker is activated correctly (fail-safe)
   return self.clients.claim();
 });
+
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    // look at all caches for a match on the key (= request)
+    caches.match(event.request).then((response) => {
+      if (response) {
+        // return from cache
+        return response;
+      } else {
+        // fetch from the server
+        return fetch(event.request);
+      }
+    })
+  );
+});
