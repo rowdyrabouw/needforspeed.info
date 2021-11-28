@@ -27,6 +27,20 @@ self.addEventListener("install", (event) => {
 
 self.addEventListener("activate", (event) => {
   console.log("%c[sw.js] Service Worker activated", "color: #FEC233");
+  event.waitUntil(
+    // will return an array of cache names
+    caches.keys().then((keys) => {
+      return Promise.all(
+        // go over all available keys
+        keys.map((key) => {
+          if (key !== STATIC_CACHE && key !== DYNAMIC_CACHE) {
+            console.log("%c[sw.js] Deleting caches", "color: #FEC233");
+            return caches.delete(key);
+          }
+        })
+      );
+    })
+  );
   // ensure that the Service Worker is activated correctly (fail-safe)
   return self.clients.claim();
 });
