@@ -1,10 +1,12 @@
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register("sw.js")
-    .then(() => {
-      console.log("%c[app.js] Service Worker registered", "color: #5B9B4C");
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("sw.js")
+      .then((reg) => {
+        console.log("%c[app.js] Service Worker registered", "color: #00ABD2");
+      })
+      .catch((e) => {
+        console.error("%c[app.js] Error during service worker registration:", e);
+      });
+  });
 }
