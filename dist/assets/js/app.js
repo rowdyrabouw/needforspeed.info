@@ -1,10 +1,23 @@
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register("sw.js")
-    .then(() => {
-      console.log("%c[app.js] Service Worker registered", "color: #5B9B4C");
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("sw.js")
+      .then((reg) => {
+        console.log("%c[app.js] Service Worker registered", "color: #00ABD2");
+        reg.onupdatefound = () => {
+          const installingWorker = reg.installing;
+          installingWorker.onstatechange = () => {
+            if (installingWorker.state === "installed") {
+              console.log("%c[app.js] New or updated content is available", "color: #00ABD2");
+              if (confirm("A new version is available.\nWould you like to load the new version?")) {
+                window.location.reload();
+              }
+            }
+          };
+        };
+      })
+      .catch((e) => {
+        console.error("%c[app.js] Error during service worker registration:", e);
+      });
+  });
 }

@@ -17,7 +17,6 @@ self.addEventListener("install", (event) => {
       cache.addAll(STATIC_FILES).then(() => {
         console.log("%c[sw.js] Files added to static cache", "color: #FEC233");
         self.skipWaiting();
-        window.location.reload();
       });
     })
   );
