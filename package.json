@@ -1,0 +1,14 @@
+{
+  "name": "needforspeed.info",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server dist --p=8080"
+  },
+  "author": "Rowdy Rabouw",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.0.0"
+  }
+}

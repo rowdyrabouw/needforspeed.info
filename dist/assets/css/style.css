@@ -1,0 +1,73 @@
+@font-face {
+  font-family: "NFS";
+  src: url("../fonts/nfs.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DIN Alternate";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/din_alternate.woff") format("woff");
+}
+
+:root {
+  --primary: rgb(254, 194, 50);
+  --secondary: rgb(184, 55, 27);
+  --dark: rgb(34, 34, 35);
+  --light: rgb(200, 200, 200);
+}
+
+html {
+  background-color: var(--secondary);
+  font-family: "DIN Alternate";
+  font-size: 1.5rem;
+  color: var(--light);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  background-color: var(--dark);
+  max-width: 700px;
+  margin: 0 auto;
+  min-height: 200vh;
+}
+
+h1 {
+  font-family: "NFS";
+  font-size: 2.75rem;
+  color: var(--primary);
+  text-align: center;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+p {
+  padding: 0 1rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: var(--secondary);
+}
+
+.stills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.stills img {
+  border: 1px solid var(--primary);
+  border-radius: 16px;
+  width: 45%;
+}

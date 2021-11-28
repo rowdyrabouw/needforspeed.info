@@ -1,0 +1,18 @@
+{
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.colorCustomizations": {
+    "editor.background": "#222223"
+  },
+  "files.autoSave": "onFocusChange",
+  "prettier.printWidth": 150,
+  "editor.formatOnSave": true,
+  "editor.fontSize": 14,
+  "editor.renderWhitespace": "trailing",
+  "todohighlight.keywords": [
+    {
+      "text": "TODO:",
+      "color": "#FFC032",
+      "backgroundColor": "rgba(184, 55, 27, 0.2)"
+    }
+  ]
+}
